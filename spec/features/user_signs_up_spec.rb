@@ -74,7 +74,7 @@ feature 'New user creates account', %Q{
     fill_in 'user_password', with: @user.password
     fill_in 'user_password_confirmation', with: @user.password_confirmation
 
-    click_button 'Sign me up!'
+    click_button 'Sign up'
 
     expect(page).to_not have_content "Welcome! You have signed up successfully."
     expect(page).to have_button 'Sign up'
