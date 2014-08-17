@@ -19,8 +19,7 @@ feature 'New user creates account', %Q{
 
   before :each do
     @user =  FactoryGirl.build(:user)
-    visit '/'
-    click_on 'Sign Up'
+    visit new_user_registration_path
   end
 
   scenario 'supplies all required, valid information' do
@@ -32,7 +31,7 @@ feature 'New user creates account', %Q{
     fill_in 'user_username', with: @user.username
     fill_in 'user_password', with: @user.password
     fill_in 'user_password_confirmation', with: @user.password
-    click_button 'Sign me up!'
+    click_button 'Sign up'
 
     expect(page).to have_content "Welcome! You have signed up successfully."
     expect(page).to have_content 'Sign Out'
@@ -41,10 +40,10 @@ feature 'New user creates account', %Q{
   end
 
   scenario 'does not supply required information' do
-    click_button 'Sign me up!'
+    click_button 'Sign up'
 
     expect(page).to_not have_link 'Sign Out'
-    expect(page).to have_button 'Sign me up!'
+    expect(page).to have_button 'Sign up'
     expect(page).to have_content "can't be blank"
   end
 
@@ -58,10 +57,10 @@ feature 'New user creates account', %Q{
     fill_in 'user_password', with: @user.password
     fill_in 'user_password_confirmation', with: @user.password_confirmation
 
-    click_button 'Sign me up!'
+    click_button 'Sign up'
 
     expect(page).to_not have_content "Welcome! You have signed up successfully."
-    expect(page).to have_button 'Sign me up!'
+    expect(page).to have_button 'Sign up'
     expect(page).to have_content 'has already been taken'
   end
 
@@ -78,7 +77,7 @@ feature 'New user creates account', %Q{
     click_button 'Sign me up!'
 
     expect(page).to_not have_content "Welcome! You have signed up successfully."
-    expect(page).to have_button 'Sign me up!'
+    expect(page).to have_button 'Sign up'
     expect(page).to have_content 'has already been taken'
   end
 
@@ -89,10 +88,10 @@ feature 'New user creates account', %Q{
     fill_in 'user_password', with: @user.password
     fill_in 'user_password_confirmation', with: 'wrong_password'
 
-    click_button 'Sign me up!'
+    click_button 'Sign up'
 
     expect(page).to_not have_content "Welcome! You have signed up successfully." # change this later
-    expect(page).to have_button 'Sign me up!'
+    expect(page).to have_button 'Sign up'
     expect(page).to have_content "doesn't match Password"
   end
 end
