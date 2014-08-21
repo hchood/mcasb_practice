@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, uniqueness: true
+  validates :role, inclusion: { in: ['member', 'admin'] }
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
