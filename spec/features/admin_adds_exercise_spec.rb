@@ -30,7 +30,20 @@ feature 'admin adds an exercise', %Q{
       expect(page).to have_content 'Added exercise.'
     end
 
-    it 'displays an error message when required fields are blank'
+    it 'displays an error message when required fields are blank' do
+      sign_in_as(admin)
+      visit new_admin_exercise_path
+
+      click_on 'Submit'
+
+      within '.exercise_name' do
+        expect(page).to have_content "can't be blank"
+      end
+
+      within '.exercise_description' do
+        expect(page).to have_content "can't be blank"
+      end
+    end
 
     it 'displays an error message when name has already been taken'
   end
