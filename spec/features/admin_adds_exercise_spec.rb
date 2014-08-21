@@ -27,8 +27,7 @@ feature 'admin adds an exercise', %Q{
       click_on 'Submit'
 
       expect(Exercise.count).to eq prev_count + 1
-      expect(page).to have_content 'Success'
-      expect(page).to_not have_button 'Submit'
+      expect(page).to have_content 'Added exercise.'
     end
 
     it 'displays an error message when required fields are blank'
