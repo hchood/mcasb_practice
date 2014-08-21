@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :admin do
-    resources :exercises, only: :new
+    resources :exercises, only: [:new, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
