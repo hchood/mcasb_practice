@@ -60,6 +60,13 @@ feature 'admin adds an exercise', %Q{
   end
 
   context 'authenticated non-admin' do
-    it 'returns a page not found message'
+    it 'returns a page not found message' do
+      user = FactoryGirl.build_stubbed(:user)
+
+      sign_in_as(user)
+      visit new_admin_exercise_path
+
+      expect{ visit new_admin_exercise_path }.to raise_error(ActionController::RoutingError)
+    end
   end
 end
