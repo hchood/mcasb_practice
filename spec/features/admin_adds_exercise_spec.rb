@@ -13,7 +13,7 @@ feature 'admin adds an exercise', %Q{
   # - The name of the exercise must be unique.
 
   context 'authenticated admin' do
-    let(:admin) { FactoryGirl.create(:user, role: 'admin') }
+    let(:admin) { FactoryGirl.build_stubbed(:user, role: 'admin') }
     let(:exercise) { FactoryGirl.build(:exercise) }
 
     it 'adds an exercise when required fields are provided' do
@@ -45,7 +45,18 @@ feature 'admin adds an exercise', %Q{
       end
     end
 
-    it 'displays an error message when name has already been taken'
+    it 'displays an error message when name has already been taken' do
+      existing_exercise = FactoryGirl.create(:exercise)
+
+      sign_in_as(admin)
+      visit new_admin_exercise_path
+
+      fill_in 'Name', with: existing_exercise.name
+      fill_in 'Description', with: exercise.description
+      click_on 'Submit'
+
+      expect(page).to have_content 'has already been taken'
+    end
   end
 
   context 'authenticated non-admin' do
