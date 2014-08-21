@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:username, :first_name, :last_name]
   end
+
+  def authorize_admin
+    if !current_user.admin?
+      render '/public/404'
+    end
+  end
 end
