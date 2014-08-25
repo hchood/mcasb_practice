@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Exercise, :type => :model do
+  let!(:exercise) { FactoryGirl.create(:exercise) }
+
   it { should validate_presence_of :name }
   it { should validate_presence_of :description }
 
