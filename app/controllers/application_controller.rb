@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    if !current_user.admin?
+    if current_user && !current_user.admin?
       render '/public/404'
     end
   end
