@@ -13,7 +13,7 @@ feature 'admin adds an exercise', %Q{
   # - The name of the exercise must be unique.
 
   context 'authenticated admin' do
-    let(:admin) { FactoryGirl.build_stubbed(:user, role: 'admin') }
+    let(:admin) { FactoryGirl.create(:user, role: 'admin') }
     let(:exercise) { FactoryGirl.build(:exercise) }
 
     it 'adds an exercise when required fields are provided' do
@@ -66,7 +66,7 @@ feature 'admin adds an exercise', %Q{
       sign_in_as(user)
       visit new_admin_exercise_path
 
-      expect{ visit new_admin_exercise_path }.to raise_error(ActionController::RoutingError)
+      expect(page).to have_content "The page you were looking for doesn't exist."
     end
   end
 end

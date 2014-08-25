@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    if current_user && !current_user.admin?
-      render '/public/404'
+    if !current_user || !current_user.admin?
+      render '/public/404', status: :not_found
     end
   end
 end
