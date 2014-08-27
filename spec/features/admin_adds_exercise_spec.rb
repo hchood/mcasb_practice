@@ -61,7 +61,7 @@ feature 'admin adds an exercise', %Q{
 
   context 'authenticated non-admin' do
     it 'returns a page not found message' do
-      user = FactoryGirl.build_stubbed(:user)
+      user = FactoryGirl.create(:user)
 
       sign_in_as(user)
       visit new_admin_exercise_path
