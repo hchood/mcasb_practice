@@ -9,4 +9,9 @@ FactoryGirl.define do
     password "secret_password"
     password_confirmation "secret_password"
   end
+
+  factory :exercise do
+    sequence(:name) { |n| "#{n} repetition" }
+    description "Listen to your partner and repeat what they say."
+  end
 end
