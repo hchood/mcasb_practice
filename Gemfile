@@ -31,6 +31,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'omniauth-facebook'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'
