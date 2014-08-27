@@ -23,6 +23,9 @@ feature 'user views list of exercises', %Q{
     end
   end
 
-  scenario 'unauthenticated user cannot view exercises'
+  scenario 'unauthenticated user cannot view exercises' do
+    visit exercises_path
 
+    expect(page).to have_content 'You need to sign in or sign up before continuing'
+  end
 end
