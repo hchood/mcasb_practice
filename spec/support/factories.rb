@@ -14,4 +14,9 @@ FactoryGirl.define do
     sequence(:name) { |n| "#{n} repetition" }
     description "Listen to your partner and repeat what they say."
   end
+
+  factory :workout do
+    sequence(:name) { |n| "#{1} Chekhov workout"}
+    description "Basic warm up and improvisation exercises"
+  end
 end
