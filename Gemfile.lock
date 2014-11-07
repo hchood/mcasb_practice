@@ -37,8 +37,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.1)
-      sass (~> 3.2)
     builder (3.2.2)
     callsite (0.0.11)
     capybara (2.3.0)
@@ -77,6 +75,9 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     hashie (3.2.0)
     hike (1.2.3)
     i18n (0.6.11)
@@ -230,12 +231,12 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.2.0)
   capybara
   coffee-rails (~> 4.0.0)
   devise
   dotenv-rails
   factory_girl_rails
+  foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

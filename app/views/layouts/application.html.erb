@@ -1,29 +1,58 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>McasbPractice</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<ul>
-  <% if user_signed_in? %>
-    <li><%= link_to 'Exercises', exercises_path %></li>
-    <li><%= link_to 'My Account', edit_user_registration_path %></li>
-    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-    <li><%= link_to 'Sign In', new_user_session_path %></li>
-    <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-  <% end %>
-</ul>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-<p><%= notice %></p>
-<p><%= alert %></p>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name" id="title">prACTice</li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
 
-</body>
+      <section class="top-bar-section">
+        <ul class="right">
+        <% if user_signed_in? %>
+          <li><%= link_to 'My Account', edit_user_registration_path %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+        <% end %>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <p><%= notice %></p>
+      <p><%= alert %></p>
+    </div>
+
+    <div class="row">
+      <div class="large-3 columns">
+        <% if user_signed_in? %>
+          <ul class="side-nav">
+            <li><%= link_to 'Workouts', '#' %></li>
+            <li><%= link_to 'Exercises', exercises_path %></li>
+            <li><%= link_to 'Log', '#' %></li>
+          </ul>
+        <% end %>
+      </div>
+
+      <div class="large-9 columns">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
