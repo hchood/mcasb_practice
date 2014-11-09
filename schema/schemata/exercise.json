@@ -28,6 +28,22 @@
       "type": [
         "string"
       ]
+    },
+    "name": {
+      "description": "name of exercise",
+      "example": "repetition",
+      "format": "string",
+      "type": [
+        "string"
+      ]
+    },
+    "description": {
+      "description": "description of exercise",
+      "example": "listen to your partner and repeat what you hear",
+      "format": "string",
+      "type": [
+        "string"
+      ]
     }
   },
   "description": "An acting exercise",
