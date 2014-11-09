@@ -33,6 +33,7 @@ gem 'simple_form'
 gem 'omniauth-facebook'
 gem 'kaminari'
 gem 'cocoon'
+gem 'prmd'
 
 group :development, :test do
   gem 'rspec-rails'
