@@ -1,4 +1,6 @@
 class Admin::WorkoutsController < ApplicationController
+  before_filter :authorize_admin
+
   def new
     @workout = Workout.new
     @exercises = Exercise.all
