@@ -6,6 +6,6 @@ RSpec.describe Workout, :type => :model do
   it { should validate_presence_of :name }
   it { should validate_uniqueness_of :name }
 
-  it { should have_many :workout_exercises }
+  it { should have_many(:workout_exercises).dependent(:destroy) }
   it { should have_many :exercises }
 end
