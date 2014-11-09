@@ -1,0 +1,13 @@
+<div class="nested-fields row">
+  <div class="large-12 columns">
+    <%= f.error_notification %>
+  </div>
+
+  <div class="large-8 columns">
+    <%= f.input :exercise_id, collection: @exercises %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= f.input :duration_in_min, label: "Duration (min.)" %>
+  </div>
+</div>

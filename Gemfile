@@ -32,6 +32,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'omniauth-facebook'
 gem 'kaminari'
+gem 'cocoon'
 
 group :development, :test do
   gem 'rspec-rails'

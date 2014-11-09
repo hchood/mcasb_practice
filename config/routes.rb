@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :exercises, only: [:new, :create]
+    resources :workouts, only: [:new, :create]
   end
 
   resources :exercises, only: [:index, :show]
