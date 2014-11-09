@@ -28,6 +28,22 @@
       "type": [
         "string"
       ]
+    },
+    "name": {
+      "description": "name of workout",
+      "example": "relaxation warm-up",
+      "format": "string",
+      "type": [
+        "string"
+      ]
+    },
+    "description": {
+      "description": "description of workout",
+      "example": "20-min. series of exercises for releasing tension",
+      "format": "string",
+      "type": [
+        "string"
+      ]
     }
   },
   "description": "Acting workouts",

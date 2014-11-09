@@ -28,7 +28,48 @@
       "type": [
         "string"
       ]
+    },
+    "email": {
+      "description": "user's email address",
+      "example": "genep@example.com",
+      "format": "string",
+      "type": [
+        "string"
+      ]
+    },
+    "username": {
+      "description": "user's username",
+      "example": "geneparmesan",
+      "format": "string",
+      "type": [
+        "string"
+      ]
+    },
+    "first_name": {
+      "description": "user's first name",
+      "example": "Gene",
+      "format": "string",
+      "type": [
+        "string"
+      ]
+    },
+    "last_name": {
+      "description": "user's last name",
+      "example": "Parmesan",
+      "format": "string",
+      "type": [
+        "string"
+      ]
+    },
+    "role": {
+      "description": "user's role (i.e. member or admin)",
+      "example": "admin",
+      "format": "string",
+      "type": [
+        "string"
+      ]
     }
+
   },
   "description": "Users",
   "links": [
