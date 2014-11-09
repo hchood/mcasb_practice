@@ -41,6 +41,10 @@
       <div class="large-3 columns">
         <% if user_signed_in? %>
           <ul class="side-nav">
+            <% if user_signed_in? && current_user.admin? %>
+              <li><%= link_to 'Add Exercises', new_admin_exercise_path %></li>
+              <li><%= link_to 'Add Workouts', new_admin_workout_path %></li>
+            <% end %>
             <li><%= link_to 'Workouts', '#' %></li>
             <li><%= link_to 'Exercises', exercises_path %></li>
             <li><%= link_to 'Log', '#' %></li>
