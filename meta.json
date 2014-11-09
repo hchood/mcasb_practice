@@ -1,0 +1,9 @@
+{
+  "description": "MCASB Practice App",
+  "id": "mcasb-practice",
+  "links":[{
+    "href": "http://localhost:3000",
+    "rel": "self"
+  }],
+  "title": "prACTice"
+}
