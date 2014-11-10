@@ -14,8 +14,6 @@
         <%= f.simple_fields_for :workout_exercises do |workout_exercise| %>
           <%= render "workout_exercise_fields", f: workout_exercise %>
         <% end %>
-
-        <%= link_to_add_association "Add exercise", f, :workout_exercises %>
       </div>
 
       <%= f.button :submit, class: "radius button" %>
