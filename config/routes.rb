@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -9,6 +11,12 @@ Rails.application.routes.draw do
   end
 
   resources :exercises, only: [:index, :show]
+
+  namespace :api, defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      resources :exercises, only: :index
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
