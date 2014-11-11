@@ -6,6 +6,7 @@ FactoryGirl.define do
     last_name "Brando"
     sequence(:username) { |n| "thegodfather#{n}" }
     sequence(:email) { |n| "brandothe#{n}@example.com"}
+    api_key { self.generate_api_key }
     password "secret_password"
     password_confirmation "secret_password"
   end

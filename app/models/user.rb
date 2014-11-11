@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :username, uniqueness: true
   validates :role, inclusion: { in: ['member', 'admin'] }
+  validates :api_key,
+    presence: true,
+    uniqueness: true
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -29,5 +32,15 @@ class User < ActiveRecord::Base
 
   def admin?
     role == 'admin'
+  end
+
+  def generate_api_key
+    token = SecureRandom.hex
+
+    while User.exists?(api_key: token)
+      token = SecureRandom.hex
+    end
+
+    token
   end
 end
